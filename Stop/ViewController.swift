@@ -14,7 +14,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
 
     var isGameRunning: Bool = false
     var timer = Timer()
-    var adTimer = Timer()
     var score = 0
     var time = 0.55
     
@@ -29,7 +28,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
-    @IBOutlet weak var freePointsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,11 +57,7 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        freePointsButton.isHidden = true
-        
-        adTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.isAdAvailable), userInfo: nil, repeats: true)
-        
+                
         authenticateLocalPlayer()
         
         if (UserDefaults.standard.bool(forKey: "addPoints"))
@@ -74,12 +68,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
         }
         
         scoreLabel.text = "Score: " + String(score)
-        
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        
-        adTimer.invalidate()
         
     }
 
@@ -113,18 +101,7 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
    
     }
     
-    func isAdAvailable()
-    {
-        if (AdColony.isVirtualCurrencyRewardAvailable(forZone: "vz48d363dee8ab40a7aa"))
-        {
-            freePointsButton.isHidden = false
-        }
-        else
-        {
-            freePointsButton.isHidden = true
-        }
-    }
-    
+
     func authenticateLocalPlayer()
     {
         localPlayer.authenticateHandler = {(viewController: UIViewController?, error: Error?) in
@@ -297,25 +274,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
             
             isGameRunning = true
         }
-        
-    }
-
-    @IBAction func increaseScore(_ sender: AnyObject)
-    {
-        if (AdColony.isVirtualCurrencyRewardAvailable(forZone: "vz48d363dee8ab40a7aa"))
-        {
-            print("yes")
-            AdColony.playVideoAd(forZone: "vz48d363dee8ab40a7aa", with: nil, withV4VCPrePopup: true, andV4VCPostPopup: true)
-
-        }
-        else
-        {
-            print("no")
-            let alert = UIAlertView(title: "Sorry", message: "Ad currently unavailable.", delegate: self, cancelButtonTitle: "Ok")
-            
-            alert.show()
-        }
-        
         
     }
 }

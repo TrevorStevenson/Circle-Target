@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,26 +30,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F48-1q-ZNv">
-                                <rect key="frame" x="138" y="105" width="98" height="34"/>
+                                <rect key="frame" x="138.5" y="105" width="97.5" height="33.5"/>
                                 <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDd-Tm-9oU">
-                                <rect key="frame" x="16" y="28" width="121" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="LZF-zF-C7k"/>
-                                    <constraint firstAttribute="width" constant="121" id="dPP-fg-gB3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="16"/>
-                                <state key="normal" title="Free Points" backgroundImage="freePoints">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="increaseScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3KU-iG-d27"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2s-cG-isL">
                                 <rect key="frame" x="16" y="599" width="343" height="60"/>
                                 <constraints>
@@ -66,7 +50,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-CE-kU0">
-                                <rect key="frame" x="119" y="563" width="137" height="28"/>
+                                <rect key="frame" x="119.5" y="563" width="137" height="28"/>
                                 <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -93,8 +77,6 @@
                             <constraint firstItem="qoM-eU-SiN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rdc-gI-QG5"/>
                             <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" constant="-0.5" id="Tlv-Ww-Y1J"/>
                             <constraint firstAttribute="trailing" secondItem="qoM-eU-SiN" secondAttribute="trailing" id="ZnR-FE-Gq8"/>
-                            <constraint firstItem="HDd-Tm-9oU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jTT-0f-ZPL"/>
-                            <constraint firstItem="HDd-Tm-9oU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="jvd-Eu-fbt"/>
                             <constraint firstItem="F48-1q-ZNv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="vxf-6F-Ig9"/>
                         </constraints>
                         <variation key="default">
@@ -109,7 +91,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="freePointsButton" destination="HDd-Tm-9oU" id="DcF-lO-JOJ"/>
                         <outlet property="highScoreLabel" destination="wbc-CE-kU0" id="T7C-2K-CLV"/>
                         <outlet property="scoreLabel" destination="1tj-Vy-9Ae" id="5R2-VE-Mss"/>
                         <outlet property="targetLabel" destination="F48-1q-ZNv" id="vXe-1D-QVd"/>
@@ -128,7 +109,6 @@
     </scenes>
     <resources>
         <image name="bg" width="1920" height="1920"/>
-        <image name="freePoints" width="112" height="37"/>
         <image name="leaderboardButton" width="1202" height="238"/>
     </resources>
 </document>

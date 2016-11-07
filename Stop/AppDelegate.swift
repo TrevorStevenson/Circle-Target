@@ -9,15 +9,13 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, AdColonyDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        AdColony.configure(withAppID: "appdb7d71c5c0094d4086", zoneIDs: ["vzc56598c137ce43eebd", "vz48d363dee8ab40a7aa"], delegate: self, logging: true)
         
         let defaults = UserDefaults.standard
         
@@ -38,21 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AdColonyDelegate {
         return true
     }
 
-    func onAdColonyV4VCReward(_ success: Bool, currencyName: String!, currencyAmount amount: Int32, inZone zoneID: String!) {
-        
-        if (success)
-        {
-            UserDefaults.standard.set(true, forKey: "addPoints")
-            
-            UserDefaults.standard.synchronize()
-        }
-        else
-        {
-            print("error")
-        }
-        
-    }
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
