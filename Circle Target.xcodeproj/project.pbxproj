@@ -9,21 +9,11 @@
 /* Begin PBXBuildFile section */
 		3A1B2A931DD0515000F367D0 /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A1B2A921DD0515000F367D0 /* BebasNeue.otf */; };
 		3A27E4821B40D7E2000BC92E /* Rounded Elegance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A27E4811B40D7E1000BC92E /* Rounded Elegance.ttf */; };
-		3ADA67D61B018EEC00CC047A /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67D51B018EEC00CC047A /* AdColony.framework */; };
-		3ADA67DA1B018FE400CC047A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67D91B018FE400CC047A /* AdSupport.framework */; };
-		3ADA67DC1B018FF300CC047A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67DB1B018FF300CC047A /* AVFoundation.framework */; };
 		3ADA67DE1B018FFC00CC047A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67DD1B018FFC00CC047A /* CoreGraphics.framework */; };
-		3ADA67E01B01900700CC047A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67DF1B01900700CC047A /* CoreMedia.framework */; };
-		3ADA67E21B01900D00CC047A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67E11B01900D00CC047A /* CoreTelephony.framework */; };
-		3ADA67E51B01902400CC047A /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67E31B01902400CC047A /* EventKit.framework */; };
-		3ADA67E61B01902400CC047A /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67E41B01902400CC047A /* EventKitUI.framework */; };
-		3ADA67E81B01903700CC047A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67E71B01903700CC047A /* MediaPlayer.framework */; };
-		3ADA67EA1B01903F00CC047A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67E91B01903F00CC047A /* MessageUI.framework */; };
 		3ADA67EC1B01904900CC047A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67EB1B01904900CC047A /* QuartzCore.framework */; };
 		3ADA67EE1B01905400CC047A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67ED1B01905400CC047A /* Social.framework */; };
 		3ADA67F01B01905900CC047A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67EF1B01905900CC047A /* StoreKit.framework */; };
 		3ADA67F21B01906500CC047A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67F11B01906500CC047A /* SystemConfiguration.framework */; };
-		3ADA67F41B01906A00CC047A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA67F31B01906A00CC047A /* WebKit.framework */; };
 		3ADD7F501AD72FA800DF001C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F4F1AD72FA800DF001C /* AppDelegate.swift */; };
 		3ADD7F521AD72FA800DF001C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F511AD72FA800DF001C /* ViewController.swift */; };
 		3ADD7F551AD72FA800DF001C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7F531AD72FA800DF001C /* Main.storyboard */; };
@@ -32,7 +22,6 @@
 		3ADD7F661AD72FA800DF001C /* StopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F651AD72FA800DF001C /* StopTests.swift */; };
 		3ADD7F701AD7317C00DF001C /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F6F1AD7317C00DF001C /* Circle.swift */; };
 		3AE7C2EC1AD8875800408F47 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7C2EB1AD8875800408F47 /* GameKit.framework */; };
-		3AEEF29C1AE45B0B0093195A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEEF29B1AE45B0B0093195A /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,32 +49,12 @@
 
 /* Begin PBXFileReference section */
 		3A1B2A921DD0515000F367D0 /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
-		3A26FB871B10EC6D008C71F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A26FB881B10EC6D008C71F0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		3A26FB891B10EC6D008C71F0 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		3A26FB8B1B10EC6D008C71F0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		3A26FB8D1B10EC6D008C71F0 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		3A26FB8F1B10EC6D008C71F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3A26FB991B10EC6D008C71F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A26FB9B1B10EC6D008C71F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		3A26FB9D1B10EC6D008C71F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A27E4811B40D7E1000BC92E /* Rounded Elegance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rounded Elegance.ttf"; sourceTree = "<group>"; };
-		3A4DF3481B0190CE0092A347 /* Circle Target-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Circle Target-Bridging-Header.h"; sourceTree = "<group>"; };
-		3ADA67D51B018EEC00CC047A /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = ../AdColony.framework; sourceTree = "<group>"; };
-		3ADA67D91B018FE400CC047A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		3ADA67DB1B018FF300CC047A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3ADA67DD1B018FFC00CC047A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3ADA67DF1B01900700CC047A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		3ADA67E11B01900D00CC047A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		3ADA67E31B01902400CC047A /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		3ADA67E41B01902400CC047A /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
-		3ADA67E71B01903700CC047A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3ADA67E91B01903F00CC047A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3ADA67EB1B01904900CC047A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3ADA67ED1B01905400CC047A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3ADA67EF1B01905900CC047A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3ADA67F11B01906500CC047A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3ADA67F31B01906A00CC047A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3ADD7F4A1AD72FA800DF001C /* Circle Target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADD7F4E1AD72FA800DF001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ADD7F4F1AD72FA800DF001C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +68,6 @@
 		3ADD7F6F1AD7317C00DF001C /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		3AE7C2EB1AD8875800408F47 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3AEEF29A1AE45B0A0093195A /* Circle Target.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Circle Target.entitlements"; sourceTree = SOURCE_ROOT; };
-		3AEEF29B1AE45B0B0093195A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,23 +75,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ADA67F41B01906A00CC047A /* WebKit.framework in Frameworks */,
 				3ADA67F21B01906500CC047A /* SystemConfiguration.framework in Frameworks */,
 				3ADA67F01B01905900CC047A /* StoreKit.framework in Frameworks */,
 				3ADA67EE1B01905400CC047A /* Social.framework in Frameworks */,
 				3ADA67EC1B01904900CC047A /* QuartzCore.framework in Frameworks */,
-				3ADA67EA1B01903F00CC047A /* MessageUI.framework in Frameworks */,
-				3ADA67E81B01903700CC047A /* MediaPlayer.framework in Frameworks */,
-				3ADA67E51B01902400CC047A /* EventKit.framework in Frameworks */,
-				3ADA67E61B01902400CC047A /* EventKitUI.framework in Frameworks */,
-				3ADA67E21B01900D00CC047A /* CoreTelephony.framework in Frameworks */,
-				3ADA67E01B01900700CC047A /* CoreMedia.framework in Frameworks */,
 				3ADA67DE1B018FFC00CC047A /* CoreGraphics.framework in Frameworks */,
-				3ADA67DC1B018FF300CC047A /* AVFoundation.framework in Frameworks */,
-				3ADA67DA1B018FE400CC047A /* AdSupport.framework in Frameworks */,
 				3AE7C2EC1AD8875800408F47 /* GameKit.framework in Frameworks */,
-				3AEEF29C1AE45B0B0093195A /* AudioToolbox.framework in Frameworks */,
-				3ADA67D61B018EEC00CC047A /* AdColony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,52 +94,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A26FB851B10EC6D008C71F0 /* Circle Target WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3A26FB891B10EC6D008C71F0 /* InterfaceController.swift */,
-				3A26FB8B1B10EC6D008C71F0 /* NotificationController.swift */,
-				3A26FB8D1B10EC6D008C71F0 /* GlanceController.swift */,
-				3A26FB8F1B10EC6D008C71F0 /* Images.xcassets */,
-				3A26FB861B10EC6D008C71F0 /* Supporting Files */,
-			);
-			path = "Circle Target WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		3A26FB861B10EC6D008C71F0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3A26FB871B10EC6D008C71F0 /* Info.plist */,
-				3A26FB881B10EC6D008C71F0 /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3A26FB971B10EC6D008C71F0 /* Circle Target WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				3A26FB9A1B10EC6D008C71F0 /* Interface.storyboard */,
-				3A26FB9D1B10EC6D008C71F0 /* Images.xcassets */,
-				3A26FB981B10EC6D008C71F0 /* Supporting Files */,
-			);
-			path = "Circle Target WatchKit App";
-			sourceTree = "<group>";
-		};
-		3A26FB981B10EC6D008C71F0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3A26FB991B10EC6D008C71F0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		3ADD7F411AD72FA800DF001C = {
 			isa = PBXGroup;
 			children = (
 				3ADD7F4C1AD72FA800DF001C /* Circle Target */,
 				3ADD7F621AD72FA800DF001C /* CircleTargetTests */,
-				3A26FB851B10EC6D008C71F0 /* Circle Target WatchKit Extension */,
-				3A26FB971B10EC6D008C71F0 /* Circle Target WatchKit App */,
 				3ADD7F4B1AD72FA800DF001C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,23 +133,11 @@
 			children = (
 				3A1B2A921DD0515000F367D0 /* BebasNeue.otf */,
 				3A27E4811B40D7E1000BC92E /* Rounded Elegance.ttf */,
-				3A4DF3481B0190CE0092A347 /* Circle Target-Bridging-Header.h */,
-				3ADA67F31B01906A00CC047A /* WebKit.framework */,
 				3ADA67F11B01906500CC047A /* SystemConfiguration.framework */,
 				3ADA67EF1B01905900CC047A /* StoreKit.framework */,
 				3ADA67ED1B01905400CC047A /* Social.framework */,
 				3ADA67EB1B01904900CC047A /* QuartzCore.framework */,
-				3ADA67E91B01903F00CC047A /* MessageUI.framework */,
-				3ADA67E71B01903700CC047A /* MediaPlayer.framework */,
-				3ADA67E31B01902400CC047A /* EventKit.framework */,
-				3ADA67E41B01902400CC047A /* EventKitUI.framework */,
-				3ADA67E11B01900D00CC047A /* CoreTelephony.framework */,
-				3ADA67DF1B01900700CC047A /* CoreMedia.framework */,
 				3ADA67DD1B018FFC00CC047A /* CoreGraphics.framework */,
-				3ADA67DB1B018FF300CC047A /* AVFoundation.framework */,
-				3ADA67D91B018FE400CC047A /* AdSupport.framework */,
-				3ADA67D51B018EEC00CC047A /* AdColony.framework */,
-				3AEEF29B1AE45B0B0093195A /* AudioToolbox.framework */,
 				3AE7C2EB1AD8875800408F47 /* GameKit.framework */,
 				3ADD7F4E1AD72FA800DF001C /* Info.plist */,
 			);
@@ -395,14 +299,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A26FB9A1B10EC6D008C71F0 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A26FB9B1B10EC6D008C71F0 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		3ADD7F531AD72FA800DF001C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
