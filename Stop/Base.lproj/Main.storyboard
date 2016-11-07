@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rounded Elegance.ttf">
+            <string>RoundedElegance-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="ViewController" customModule="Circle_Target" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="qoM-eU-SiN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F48-1q-ZNv">
+                                <rect key="frame" x="138" y="105" width="98" height="34"/>
+                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDd-Tm-9oU">
+                                <rect key="frame" x="16" y="28" width="121" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LZF-zF-C7k"/>
+                                    <constraint firstAttribute="width" constant="121" id="dPP-fg-gB3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="16"/>
+                                <state key="normal" title="Free Points" backgroundImage="freePoints">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="increaseScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3KU-iG-d27"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2s-cG-isL">
+                                <rect key="frame" x="16" y="599" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jFN-v7-333"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="17"/>
+                                <state key="normal" title="Leaderboard" backgroundImage="leaderboardButton">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaderboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhX-SW-z1t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-CE-kU0">
+                                <rect key="frame" x="119" y="563" width="137" height="28"/>
+                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tj-Vy-9Ae">
+                                <rect key="frame" x="279" y="32" width="76" height="28"/>
+                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="qoM-eU-SiN" secondAttribute="bottom" constant="-68" id="2C0-tc-A3l"/>
+                            <constraint firstAttribute="bottom" secondItem="qoM-eU-SiN" secondAttribute="bottom" id="5VX-Ab-wl0"/>
+                            <constraint firstItem="qoM-eU-SiN" firstAttribute="top" secondItem="1tj-Vy-9Ae" secondAttribute="bottom" constant="-60" id="ALD-4g-wAp"/>
+                            <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AcW-Eu-syW"/>
+                            <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="wbc-CE-kU0" secondAttribute="bottom" constant="8" id="BJT-EG-D3W"/>
+                            <constraint firstAttribute="centerX" secondItem="F48-1q-ZNv" secondAttribute="centerX" id="LPq-pt-zqR"/>
+                            <constraint firstAttribute="trailing" secondItem="1tj-Vy-9Ae" secondAttribute="trailing" constant="20" id="Lhu-gp-xQ8"/>
+                            <constraint firstItem="qoM-eU-SiN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lyb-cE-Vle"/>
+                            <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="qoM-eU-SiN" secondAttribute="trailing" constant="-359" id="Pgx-Hr-sFb"/>
+                            <constraint firstAttribute="centerX" secondItem="L2s-cG-isL" secondAttribute="centerX" id="QiW-FS-CqW"/>
+                            <constraint firstItem="qoM-eU-SiN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rdc-gI-QG5"/>
+                            <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" constant="-0.5" id="Tlv-Ww-Y1J"/>
+                            <constraint firstAttribute="trailing" secondItem="qoM-eU-SiN" secondAttribute="trailing" id="ZnR-FE-Gq8"/>
+                            <constraint firstItem="HDd-Tm-9oU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jTT-0f-ZPL"/>
+                            <constraint firstItem="HDd-Tm-9oU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="jvd-Eu-fbt"/>
+                            <constraint firstItem="F48-1q-ZNv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="vxf-6F-Ig9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AcW-Eu-syW"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yuY-0P-Usy" appends="YES" id="AcC-jr-ZMI"/>
+                        </connections>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="freePointsButton" destination="HDd-Tm-9oU" id="DcF-lO-JOJ"/>
+                        <outlet property="highScoreLabel" destination="wbc-CE-kU0" id="T7C-2K-CLV"/>
+                        <outlet property="scoreLabel" destination="1tj-Vy-9Ae" id="5R2-VE-Mss"/>
+                        <outlet property="targetLabel" destination="F48-1q-ZNv" id="vXe-1D-QVd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yuY-0P-Usy">
+                    <connections>
+                        <action selector="tapped:" destination="BYZ-38-t0r" id="45l-fn-B8s"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="B3a-At-SA3"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-80.799999999999997" y="120.08995502248877"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg" width="1920" height="1920"/>
+        <image name="freePoints" width="112" height="37"/>
+        <image name="leaderboardButton" width="1202" height="238"/>
+    </resources>
+</document>
