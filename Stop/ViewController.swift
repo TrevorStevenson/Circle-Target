@@ -32,8 +32,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
         var side: CGFloat = 200
         
         if (self.view.bounds.size.height == 480)
@@ -130,7 +128,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
                                 
                             })
                         }
-                        
                     })
                     
                 }

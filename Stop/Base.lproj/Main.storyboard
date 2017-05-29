@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Rounded Elegance.ttf">
-            <string>RoundedElegance-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -26,22 +22,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="qoM-eU-SiN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F48-1q-ZNv">
-                                <rect key="frame" x="138.5" y="105" width="97.5" height="33.5"/>
-                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-CE-kU0">
+                                <rect key="frame" x="122.5" y="664.5" width="130" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tj-Vy-9Ae">
+                                <rect key="frame" x="285.5" y="28" width="69.5" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2s-cG-isL">
-                                <rect key="frame" x="16" y="599" width="343" height="60"/>
+                                <rect key="frame" x="0.0" y="707" width="375" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jFN-v7-333"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="17"/>
-                                <state key="normal" title="Leaderboard" backgroundImage="leaderboardButton">
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Leaderboard">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -49,35 +47,18 @@
                                     <action selector="leaderboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhX-SW-z1t"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-CE-kU0">
-                                <rect key="frame" x="119.5" y="563" width="137" height="28"/>
-                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tj-Vy-9Ae">
-                                <rect key="frame" x="279" y="32" width="76" height="28"/>
-                                <fontDescription key="fontDescription" name="RoundedElegance-Regular" family="Rounded Elegance" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.74509803921568629" green="0.76470588235294112" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="qoM-eU-SiN" secondAttribute="bottom" constant="-68" id="2C0-tc-A3l"/>
-                            <constraint firstAttribute="bottom" secondItem="qoM-eU-SiN" secondAttribute="bottom" id="5VX-Ab-wl0"/>
-                            <constraint firstItem="qoM-eU-SiN" firstAttribute="top" secondItem="1tj-Vy-9Ae" secondAttribute="bottom" constant="-60" id="ALD-4g-wAp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="L2s-cG-isL" secondAttribute="bottom" constant="-100" id="5yg-4d-r6E"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AcW-Eu-syW"/>
                             <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="wbc-CE-kU0" secondAttribute="bottom" constant="8" id="BJT-EG-D3W"/>
-                            <constraint firstAttribute="centerX" secondItem="F48-1q-ZNv" secondAttribute="centerX" id="LPq-pt-zqR"/>
                             <constraint firstAttribute="trailing" secondItem="1tj-Vy-9Ae" secondAttribute="trailing" constant="20" id="Lhu-gp-xQ8"/>
-                            <constraint firstItem="qoM-eU-SiN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lyb-cE-Vle"/>
-                            <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="qoM-eU-SiN" secondAttribute="trailing" constant="-359" id="Pgx-Hr-sFb"/>
-                            <constraint firstAttribute="centerX" secondItem="L2s-cG-isL" secondAttribute="centerX" id="QiW-FS-CqW"/>
-                            <constraint firstItem="qoM-eU-SiN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rdc-gI-QG5"/>
-                            <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" constant="-0.5" id="Tlv-Ww-Y1J"/>
-                            <constraint firstAttribute="trailing" secondItem="qoM-eU-SiN" secondAttribute="trailing" id="ZnR-FE-Gq8"/>
-                            <constraint firstItem="F48-1q-ZNv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="vxf-6F-Ig9"/>
+                            <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="P3c-4i-yT3"/>
+                            <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="T52-ur-3Gg"/>
+                            <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" id="Tlv-Ww-Y1J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L2s-cG-isL" secondAttribute="trailing" constant="-16" id="zT1-Ft-VDT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -93,7 +74,6 @@
                     <connections>
                         <outlet property="highScoreLabel" destination="wbc-CE-kU0" id="T7C-2K-CLV"/>
                         <outlet property="scoreLabel" destination="1tj-Vy-9Ae" id="5R2-VE-Mss"/>
-                        <outlet property="targetLabel" destination="F48-1q-ZNv" id="vXe-1D-QVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -107,8 +87,4 @@
             <point key="canvasLocation" x="-80.799999999999997" y="120.08995502248877"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bg" width="1920" height="1920"/>
-        <image name="leaderboardButton" width="1202" height="238"/>
-    </resources>
 </document>

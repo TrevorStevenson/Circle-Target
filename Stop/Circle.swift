@@ -121,9 +121,5 @@ class Circle: UIView {
         randomColor.setFill()
         
         circlePath.fill()
-        
-        
     }
-    
-
 }
