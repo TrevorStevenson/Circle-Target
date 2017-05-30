@@ -47,6 +47,19 @@
                                     <action selector="leaderboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhX-SW-z1t"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TargetBox" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-X2-G6B">
+                                <rect key="frame" x="124" y="269" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="iId-P0-XAa"/>
+                                    <constraint firstAttribute="width" constant="128" id="tTM-nx-Oeq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtx-9D-TPc">
+                                <rect key="frame" x="163.5" y="275.5" width="48" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.74509803921568629" green="0.76470588235294112" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -54,10 +67,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="L2s-cG-isL" secondAttribute="bottom" constant="-100" id="5yg-4d-r6E"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AcW-Eu-syW"/>
                             <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="wbc-CE-kU0" secondAttribute="bottom" constant="8" id="BJT-EG-D3W"/>
+                            <constraint firstItem="KMZ-X2-G6B" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C2X-of-lFR"/>
                             <constraint firstAttribute="trailing" secondItem="1tj-Vy-9Ae" secondAttribute="trailing" constant="20" id="Lhu-gp-xQ8"/>
                             <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="P3c-4i-yT3"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="T52-ur-3Gg"/>
                             <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" id="Tlv-Ww-Y1J"/>
+                            <constraint firstItem="KMZ-X2-G6B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c3v-Vc-Ig5"/>
+                            <constraint firstItem="wtx-9D-TPc" firstAttribute="centerX" secondItem="KMZ-X2-G6B" secondAttribute="centerX" id="nfH-7U-1bb"/>
+                            <constraint firstItem="KMZ-X2-G6B" firstAttribute="top" secondItem="wtx-9D-TPc" secondAttribute="bottom" constant="-30" id="oBQ-Po-zES"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L2s-cG-isL" secondAttribute="trailing" constant="-16" id="zT1-Ft-VDT"/>
                         </constraints>
                         <variation key="default">
@@ -74,6 +91,8 @@
                     <connections>
                         <outlet property="highScoreLabel" destination="wbc-CE-kU0" id="T7C-2K-CLV"/>
                         <outlet property="scoreLabel" destination="1tj-Vy-9Ae" id="5R2-VE-Mss"/>
+                        <outlet property="targetBox" destination="KMZ-X2-G6B" id="xhJ-CD-x9r"/>
+                        <outlet property="targetLabel" destination="wtx-9D-TPc" id="1mK-ev-0bV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,4 +106,7 @@
             <point key="canvasLocation" x="-80.799999999999997" y="120.08995502248877"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TargetBox" width="346" height="346"/>
+    </resources>
 </document>

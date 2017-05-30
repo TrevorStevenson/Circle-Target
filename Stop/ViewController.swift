@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import iAd
 import GameKit
 
-class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterControllerDelegate {
+class ViewController: UIViewController {
 
     var isGameRunning: Bool = false
     var timer = Timer()
@@ -22,33 +21,19 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
     var leaderBoardIdentifier: String = "highScore2"
     
     var circleFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
-    var centerCircle = Circle(Cframe: CGRect.zero, color: "trevor")
+    var centerCircle = Circle(Cframe: CGRect.zero)
     var targetColor = ""
     
     @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var targetBox: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var side: CGFloat = 200
         
-        if (self.view.bounds.size.height == 480)
-        {
-            side = 150
-        }
         
-        let cSize = self.view.frame.size
-        circleFrame = CGRect(x: cSize.width/2 - CGFloat(side/2), y: cSize.height/2 - CGFloat(side/2), width: side, height: side)
-        
-        centerCircle = Circle(Cframe: circleFrame, color: "trevor")
-        
-        self.view.addSubview(centerCircle)
-        
-        scoreLabel.text = "Score: " + String(score)
-        
-        targetLabel.text = "Tap to begin"
         
         highScoreLabel.text = "High Score: " + String(UserDefaults.standard.integer(forKey: "highScore"))
         
@@ -58,108 +43,9 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
                 
         authenticateLocalPlayer()
         
-        if (UserDefaults.standard.bool(forKey: "addPoints"))
-        {
-            score += 2
-            UserDefaults.standard.set(false, forKey: "addPoints")
-            UserDefaults.standard.synchronize()
-        }
-        
         scoreLabel.text = "Score: " + String(score)
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
-        
-        UIView.beginAnimations(nil, context: nil)
-    
-        UIView.setAnimationDuration(1.0)
-    
-        banner.alpha = 1.0
-    
-        UIView.commitAnimations()
-  
-        
-    }
-    
-    func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: Error!) {
-        
-        UIView.beginAnimations(nil, context: nil)
-    
-        UIView.setAnimationDuration(1.0)
-    
-        banner.alpha = 0.0
-    
-        UIView.commitAnimations()
-   
-    }
-    
-
-    func authenticateLocalPlayer()
-    {
-        localPlayer.authenticateHandler = {(viewController: UIViewController?, error: Error?) in
-            
-            if (viewController != nil)
-            {
-                self.present(viewController!, animated: true, completion: nil)
-            }
-            else
-            {
-                if (GKLocalPlayer.localPlayer().isAuthenticated)
-                {
-                    self.gameCenterEnabled = true
-                    
-                    GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifier: String?, error: Error?) -> Void in
-                        
-                        if (error != nil)
-                        {
-                            print(error!.localizedDescription)
-                        }
-                        else
-                        {
-                            self.leaderBoardIdentifier = leaderboardIdentifier!
-                            
-                            GKNotificationBanner.show(withTitle: "Welcome", message: "Get a high score!", completionHandler: { () -> Void in
-                                
-                            })
-                        }
-                    })
-                    
-                }
-                else
-                {
-                    self.gameCenterEnabled = false
-                }
-            }
-            
-        }
-
-    }
-        
-    func showLeaderboard(_ identifier: NSString)
-    {
-        let GKVC = GKGameCenterViewController()
-        
-        GKVC.gameCenterDelegate = self
-        
-        GKVC.viewState = GKGameCenterViewControllerState.leaderboards
-        
-        GKVC.leaderboardIdentifier = identifier as String
-        
-        present(GKVC, animated: true, completion: nil)
-            
-    }
-        
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
-    {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func leaderboard(_ sender: AnyObject)
     {
         showLeaderboard(leaderBoardIdentifier as NSString)
@@ -204,6 +90,25 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
         }
     }
 
+    func placeCircle()
+    {
+        let screenSize = self.view.frame.size
+        
+        let radius = arc4random_uniform(UInt32(screenSize.width / 8)) + UInt32(screenSize.width / 8)
+        
+        let x = arc4random_uniform(UInt32(screenSize.width - (2 * radius) - 40)) + 20
+        let y = arc4random_uniform(UInt32(screenSize.height - (2 * radius) - 40)) + 20
+        let circle = Circle(Cframe: CGRect(x: x, y: y, width: 2 * radius, height: 2 * radius))
+        
+        let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius), target: self, selector: #selector(self.removeCircle(timer:)), userInfo: circle, repeats: false)
+    }
+    
+    func removeCircle(timer: Timer)
+    {
+        let circle: Circle = timer.userInfo as Circle
+        circle.removeFromSuperview()
+    }
+    
     
     func beginCycle()
     {
@@ -213,9 +118,6 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
         
         targetColor = colors[Int(random)]
         
-        targetLabel.text = "Target: " + targetColor
-        
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(time), target: self, selector: #selector(ViewController.changeCircle), userInfo: nil, repeats: true)
     }
     
     func endCycle()
@@ -225,40 +127,8 @@ class ViewController: UIViewController, ADBannerViewDelegate, GKGameCenterContro
         check()
     }
     
-   
-    
-    func changeCircle()
-    {
-        let color  = centerCircle.fillColor
-        
-        centerCircle.removeFromSuperview()
-        
-        centerCircle = Circle(Cframe: circleFrame, color: color)
-        
-        self.view.addSubview(centerCircle)
-    }
-    
-    func submitScore()
-    {
-        let id: String = "highScore2"
-        
-        let highScore = GKScore(leaderboardIdentifier:id)
-        
-        highScore.value = Int64(score)
-        
-        GKScore.report([highScore], withCompletionHandler: { (error: Error?) -> Void in
-            
-            if (error != nil)
-            {
-                print(error!.localizedDescription)
-            }
-        })
-        
-    }
-
     @IBAction func tapped(_ sender: AnyObject)
     {
-        
         if (isGameRunning)
         {
             endCycle()
