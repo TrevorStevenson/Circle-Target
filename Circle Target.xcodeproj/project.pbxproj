@@ -19,7 +19,6 @@
 		3ADD7F551AD72FA800DF001C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7F531AD72FA800DF001C /* Main.storyboard */; };
 		3ADD7F571AD72FA800DF001C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7F561AD72FA800DF001C /* Images.xcassets */; };
 		3ADD7F5A1AD72FA800DF001C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD7F581AD72FA800DF001C /* LaunchScreen.xib */; };
-		3ADD7F661AD72FA800DF001C /* StopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F651AD72FA800DF001C /* StopTests.swift */; };
 		3ADD7F701AD7317C00DF001C /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F6F1AD7317C00DF001C /* Circle.swift */; };
 		3B40EBA51EDCBA1E0044F0B8 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EBA41EDCBA1E0044F0B8 /* GameCenterController.swift */; };
 		3BABBDF51EDD12C1006CE6BC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BABBDF41EDD12C1006CE6BC /* GameKit.framework */; };
@@ -65,8 +64,6 @@
 		3ADD7F561AD72FA800DF001C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3ADD7F591AD72FA800DF001C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3ADD7F5F1AD72FA800DF001C /* CircleTargetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CircleTargetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ADD7F641AD72FA800DF001C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3ADD7F651AD72FA800DF001C /* StopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTests.swift; sourceTree = "<group>"; };
 		3ADD7F6F1AD7317C00DF001C /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		3AEEF29A1AE45B0A0093195A /* Circle Target.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Circle Target.entitlements"; sourceTree = SOURCE_ROOT; };
 		3B40EBA41EDCBA1E0044F0B8 /* GameCenterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterController.swift; sourceTree = "<group>"; };
@@ -103,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				3ADD7F4C1AD72FA800DF001C /* Circle Target */,
-				3ADD7F621AD72FA800DF001C /* CircleTargetTests */,
 				3ADD7F4B1AD72FA800DF001C /* Products */,
 				3BABBDF31EDD12C1006CE6BC /* Frameworks */,
 			);
@@ -146,24 +142,6 @@
 				3ADA67EB1B01904900CC047A /* QuartzCore.framework */,
 				3ADA67DD1B018FFC00CC047A /* CoreGraphics.framework */,
 				3ADD7F4E1AD72FA800DF001C /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3ADD7F621AD72FA800DF001C /* CircleTargetTests */ = {
-			isa = PBXGroup;
-			children = (
-				3ADD7F651AD72FA800DF001C /* StopTests.swift */,
-				3ADD7F631AD72FA800DF001C /* Supporting Files */,
-			);
-			name = CircleTargetTests;
-			path = StopTests;
-			sourceTree = "<group>";
-		};
-		3ADD7F631AD72FA800DF001C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3ADD7F641AD72FA800DF001C /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -303,7 +281,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ADD7F661AD72FA800DF001C /* StopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +418,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.NCUnited.Circle-Target";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TripleTorus.CircleTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -465,7 +442,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.NCUnited.Circle-Target";
+				PRODUCT_BUNDLE_IDENTIFIER = com.TripleTorus.CircleTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

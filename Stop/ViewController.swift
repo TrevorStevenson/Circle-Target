@@ -32,11 +32,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let defaults = UserDefaults.standard
         
-        
+        if (defaults.integer(forKey: "firstTime") == 0)
+        {
+            let alert = UIAlertController(title: "Welcome", message: "This is Circle Target. Identify and eliminate the target. It's up to you now, soldier.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Got it", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            defaults.set(1, forKey: "firstTime")
+            defaults.set(0, forKey: "highScore")
+            defaults.synchronize()
+        }
         
         highScoreLabel.text = "High Score: " + String(UserDefaults.standard.integer(forKey: "highScore"))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

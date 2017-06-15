@@ -17,20 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let defaults = UserDefaults.standard
         
-        if (defaults.integer(forKey: "firstTime") == 0)
-        {
-            let alert = UIAlertView(title: "Welcome", message: "This is Circle Target. Tap to begin the cycle. Tap again to stop. The goal is to stop on the specified target color. Check out your high score on the global leaderboards.", delegate: self, cancelButtonTitle: "Got it")
-            
-            alert.show()
-            
-            defaults.set(1, forKey: "firstTime")
-            
-            defaults.set(0, forKey: "highScore")
-            
-            defaults.synchronize()
-        }
         
         
         return true
