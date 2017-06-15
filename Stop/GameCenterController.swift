@@ -15,9 +15,9 @@ extension ViewController: GKGameCenterControllerDelegate
     {
         localPlayer.authenticateHandler = {(viewController: UIViewController?, error: Error?) in
             
-            if (viewController != nil)
+            if let VC = viewController
             {
-                self.present(viewController!, animated: true, completion: nil)
+                self.present(VC, animated: true, completion: nil)
             }
             else
             {
@@ -25,15 +25,16 @@ extension ViewController: GKGameCenterControllerDelegate
                 {
                     self.gameCenterEnabled = true
                     
-                    GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifier: String?, error: Error?) -> Void in
+                    GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardID: String?, error: Error?) -> Void in
                         
-                        if (error != nil)
+                        guard error != nil else
                         {
-                            print(error!.localizedDescription)
+                            return
                         }
-                        else
+                        
+                        if let identifier = leaderboardID
                         {
-                            self.leaderBoardIdentifier = leaderboardIdentifier!
+                            self.leaderBoardIdentifier = identifier
                         }
                     })
                     
@@ -43,23 +44,17 @@ extension ViewController: GKGameCenterControllerDelegate
                     self.gameCenterEnabled = false
                 }
             }
-            
         }
-        
     }
     
     func showLeaderboard(_ identifier: NSString)
     {
         let GKVC = GKGameCenterViewController()
-        
         GKVC.gameCenterDelegate = self
-        
         GKVC.viewState = GKGameCenterViewControllerState.leaderboards
-        
         GKVC.leaderboardIdentifier = identifier as String
         
         present(GKVC, animated: true, completion: nil)
-        
     }
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)

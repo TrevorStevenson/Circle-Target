@@ -105,16 +105,22 @@ class ViewController: UIViewController {
         
         let radius = arc4random_uniform(UInt32(screenSize.width / 8)) + UInt32(screenSize.width / 8)
         
-        let x = arc4random_uniform(UInt32(screenSize.width - (2 * radius) - 40)) + 20
-        let y = arc4random_uniform(UInt32(screenSize.height - (2 * radius) - 40)) + 20
-        let circle = Circle(Cframe: CGRect(x: x, y: y, width: 2 * radius, height: 2 * radius))
+        let x = arc4random_uniform(UInt32(screenSize.width) - (2 * radius) - 40) + 20
+        let y = arc4random_uniform(UInt32(screenSize.height) - (2 * radius) - 40) + 20
+        let circle = Circle(Cframe: CGRect(x: Int(x), y: Int(y), width: Int(2 * radius), height: Int(2 * radius)))
+        
+        self.view.addSubview(circle)
+        let animation = CABasicAnimation(keyPath: "scale")
+        animation.fromValue = 1.0
+        animation.toValue = 1.5
+        circle.layer.add(animation, forKey: "scale")
         
         let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius), target: self, selector: #selector(self.removeCircle(timer:)), userInfo: circle, repeats: false)
     }
     
     func removeCircle(timer: Timer)
     {
-        let circle: Circle = timer.userInfo as Circle
+        let circle: Circle = timer.userInfo as! Circle
         circle.removeFromSuperview()
     }
     
