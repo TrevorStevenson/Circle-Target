@@ -21,28 +21,25 @@ extension ViewController: GKGameCenterControllerDelegate
             }
             else
             {
-                if (GKLocalPlayer.localPlayer().isAuthenticated)
+                self.gameCenterEnabled = GKLocalPlayer.localPlayer().isAuthenticated
+                
+                guard self.gameCenterEnabled else
                 {
-                    self.gameCenterEnabled = true
-                    
-                    GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardID: String?, error: Error?) -> Void in
-                        
-                        guard error != nil else
-                        {
-                            return
-                        }
-                        
-                        if let identifier = leaderboardID
-                        {
-                            self.leaderBoardIdentifier = identifier
-                        }
-                    })
-                    
+                    return
                 }
-                else
-                {
-                    self.gameCenterEnabled = false
-                }
+                
+                GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardID: String?, error: Error?) -> Void in
+                    
+                    guard error != nil else
+                    {
+                        return
+                    }
+                    
+                    if let identifier = leaderboardID
+                    {
+                        self.leaderBoardIdentifier = identifier
+                    }
+                })
             }
         }
     }
@@ -64,18 +61,10 @@ extension ViewController: GKGameCenterControllerDelegate
     
     func submitScore()
     {
-        let id: String = "highScore2"
-        
+        let id = "highScore2"
         let highScore = GKScore(leaderboardIdentifier:id)
         
         highScore.value = Int64(score)
-        
-        GKScore.report([highScore], withCompletionHandler: { (error: Error?) -> Void in
-            
-            if (error != nil)
-            {
-                print(error!.localizedDescription)
-            }
-        })
+        GKScore.report([highScore], withCompletionHandler:nil)
     }
 }

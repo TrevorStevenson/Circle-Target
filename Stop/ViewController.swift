@@ -20,18 +20,24 @@ class ViewController: UIViewController {
     var gameCenterEnabled: Bool = false
     var leaderBoardIdentifier: String = "highScore2"
     
-    var circleFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
-    var centerCircle = Circle(Cframe: CGRect.zero)
-    var targetColor = ""
+    var targetCircle: Circle?
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var targetBox: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
     
-    override func viewDidLoad() {
+    @IBOutlet weak var playButton: UIButton!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        targetBox.isHidden = true
+        targetLabel.isHidden = true
+        
+        playButton.fadeIn()
+
         let defaults = UserDefaults.standard
         
         if (defaults.integer(forKey: "firstTime") == 0)
@@ -60,9 +66,15 @@ class ViewController: UIViewController {
         showLeaderboard(leaderBoardIdentifier as NSString)
     }
     
+    func createTargetCircle()
+    {
+        targetBox.fadeIn()
+        
+    }
+    
     func check()
     {
-        if (centerCircle.fillColor == targetColor)
+        if (true)
         {
             score += 1
             
@@ -110,10 +122,8 @@ class ViewController: UIViewController {
         let circle = Circle(Cframe: CGRect(x: Int(x), y: Int(y), width: Int(2 * radius), height: Int(2 * radius)))
         
         self.view.addSubview(circle)
-        let animation = CABasicAnimation(keyPath: "scale")
-        animation.fromValue = 1.0
-        animation.toValue = 1.5
-        circle.layer.add(animation, forKey: "scale")
+        
+        circle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         
         let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius), target: self, selector: #selector(self.removeCircle(timer:)), userInfo: circle, repeats: false)
     }
@@ -124,39 +134,14 @@ class ViewController: UIViewController {
         circle.removeFromSuperview()
     }
     
-    
-    func beginCycle()
+    func tap()
     {
-        var colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Black"]
-        
-        let random = arc4random_uniform(UInt32(colors.count))
-        
-        targetColor = colors[Int(random)]
         
     }
     
-    func endCycle()
+    @IBAction func play(_ sender: Any)
     {
-        timer.invalidate()
-        
-        check()
-    }
-    
-    @IBAction func tapped(_ sender: AnyObject)
-    {
-        if (isGameRunning)
-        {
-            endCycle()
-            
-            isGameRunning = false
-        }
-        else
-        {
-            beginCycle()
-            
-            isGameRunning = true
-        }
-        
+        createTargetCircle()
     }
 }
 

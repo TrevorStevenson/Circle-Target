@@ -60,6 +60,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daF-TA-MBo">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="c1B-3v-Yrg"/>
+                                    <constraint firstAttribute="height" constant="150" id="pPS-XB-tNH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="playButton"/>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exe-Eh-8fr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.74509803921568629" green="0.76470588235294112" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -72,9 +83,11 @@
                             <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="P3c-4i-yT3"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="T52-ur-3Gg"/>
                             <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" id="Tlv-Ww-Y1J"/>
+                            <constraint firstItem="daF-TA-MBo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ywe-bU-QtX"/>
                             <constraint firstItem="KMZ-X2-G6B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c3v-Vc-Ig5"/>
                             <constraint firstItem="wtx-9D-TPc" firstAttribute="centerX" secondItem="KMZ-X2-G6B" secondAttribute="centerX" id="nfH-7U-1bb"/>
                             <constraint firstItem="KMZ-X2-G6B" firstAttribute="top" secondItem="wtx-9D-TPc" secondAttribute="bottom" constant="-30" id="oBQ-Po-zES"/>
+                            <constraint firstItem="daF-TA-MBo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pDy-KJ-lAY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L2s-cG-isL" secondAttribute="trailing" constant="-16" id="zT1-Ft-VDT"/>
                         </constraints>
                         <variation key="default">
@@ -90,6 +103,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="highScoreLabel" destination="wbc-CE-kU0" id="T7C-2K-CLV"/>
+                        <outlet property="playButton" destination="daF-TA-MBo" id="KPj-Vg-xQS"/>
                         <outlet property="scoreLabel" destination="1tj-Vy-9Ae" id="5R2-VE-Mss"/>
                         <outlet property="targetBox" destination="KMZ-X2-G6B" id="xhJ-CD-x9r"/>
                         <outlet property="targetLabel" destination="wtx-9D-TPc" id="1mK-ev-0bV"/>
@@ -108,5 +122,6 @@
     </scenes>
     <resources>
         <image name="TargetBox" width="346" height="346"/>
+        <image name="playButton" width="336" height="336"/>
     </resources>
 </document>

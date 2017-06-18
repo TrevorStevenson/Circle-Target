@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import Foundation
+import TSCode
 
 class Circle: UIView {
 
-    var fillColor = ""
-    var previousColor = "trevor"
+    enum CircleColor {
+        case red
+        case oragne
+        case yellow
+        case green
+        case blue
+        case purple
+        case black
+        case cyan
+        case darkGray
+        case magenta
+    }
+    
+    var fillColor: CircleColor?
     
     required init?(coder aDecoder: NSCoder) {
         
@@ -24,6 +38,11 @@ class Circle: UIView {
         super.init(frame: Cframe)
         
         self.backgroundColor = UIColor.clear
+        
+        let animation = CABasicAnimation(keyPath: "scale")
+        animation.fromValue = 1.0
+        animation.toValue = 1.5
+        self.layer.add(animation, forKey: "scale")
     }
     
     // Only override drawRect: if you perform custom drawing.
@@ -44,56 +63,35 @@ class Circle: UIView {
         
         let random = arc4random_uniform(UInt32(colors.count))
         
-        switch Int(random)
-        {
-        case 0:
-            fillColor = "Red"
-            break
-            
-        case 1:
-            fillColor = "Orange"
-            break
-            
-        case 2:
-            fillColor = "Yellow"
-            break
-            
-        case 3:
-            fillColor = "Green"
-            break
-            
-        case 4:
-            fillColor = "Blue"
-            break
-            
-        case 5:
-            fillColor = "Purple"
-            break
-            
-        case 6:
-            fillColor = "Black"
-            break
-            
-        case 7:
-            fillColor = "Cyan"
-            break
-            
-        case 8:
-            fillColor = "DarkGray"
-            break
-            
-        case 9:
-            fillColor = "Magenta"
-            break
-            
-        default:
-            fillColor = ""
-            break
-        }
-        
         let randomColor: UIColor = colors[Int(random)]
         
         randomColor.setFill()
-
+        
+        switch random {
+            
+        case 0:
+            self.fillColor = .red
+        case 1:
+            self.fillColor = .oragne
+        case 2:
+            self.fillColor = .yellow
+        case 3:
+            self.fillColor = .green
+        case 4:
+            self.fillColor = .blue
+        case 5:
+            self.fillColor = .purple
+        case 6:
+            self.fillColor = .black
+        case 7:
+            self.fillColor = .cyan
+        case 8:
+            self.fillColor = .darkGray
+        case 9:
+            self.fillColor = .magenta
+        default:
+            self.fillColor = nil
+            
+        }
     }
 }
