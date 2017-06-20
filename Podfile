@@ -7,7 +7,7 @@ target 'Circle Target' do
   # Pods for TSCode
   pod 'TSCode', :git => 'https://github.com/TrevorStevenson/TSCode.git', :tag => '1.0.0'
 
-  target 'TSCodeTests' do
+  target 'CircleTargetTests' do
     inherit! :search_paths
     # Pods for testing
 
