@@ -132,25 +132,100 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_MSG(...) __attribute__((deprecated(__VA_ARGS__)))
 #endif
 #if defined(__has_feature) && __has_feature(modules)
+@import ObjectiveC;
 @import UIKit;
+@import CoreGraphics;
 @import Foundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
+@interface NSObject (SWIFT_EXTENSION(TSCode))
+- (void)nop;
+@end
+
+
 @interface UIColor (SWIFT_EXTENSION(TSCode))
-- (UIColor * _Nonnull)turquoise SWIFT_WARN_UNUSED_RESULT;
-- (UIColor * _Nonnull)greenSea SWIFT_WARN_UNUSED_RESULT;
-- (UIColor * _Nonnull)emerald SWIFT_WARN_UNUSED_RESULT;
-- (UIColor * _Nonnull)nephritis SWIFT_WARN_UNUSED_RESULT;
-- (UIColor * _Nonnull)peterRiver SWIFT_WARN_UNUSED_RESULT;
+- (UIColor * _Nonnull)turquoiseWithAlpha:(CGFloat)alpha SWIFT_WARN_UNUSED_RESULT;
+- (UIColor * _Nonnull)greenSeaWithAlpha:(CGFloat)alpha SWIFT_WARN_UNUSED_RESULT;
+- (UIColor * _Nonnull)emeraldWithAlpha:(CGFloat)alpha SWIFT_WARN_UNUSED_RESULT;
+- (UIColor * _Nonnull)nephritisWithAlpha:(CGFloat)alpha SWIFT_WARN_UNUSED_RESULT;
+- (UIColor * _Nonnull)peterRiverWithAlpha:(CGFloat)alpha SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface UIView (SWIFT_EXTENSION(TSCode))
+- (void)addSubviews:(NSArray<UIView *> * _Nonnull)views;
+- (BOOL)doesIntersect:(UIView * _Nonnull)otherView SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(TSCode))
+- (void)scaleWithDuration:(NSTimeInterval)duration startValue:(float)start endValue:(float)end repeatCount:(float)count shouldReverse:(BOOL)reverse andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)scaleUpWithDuration:(NSTimeInterval)duration startValue:(float)start endValue:(float)end repeatCount:(float)count shouldReverse:(BOOL)reverse andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)scaleDownWithDuration:(NSTimeInterval)duration startValue:(float)start endValue:(float)end repeatCount:(float)count shouldReverse:(BOOL)reverse andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)scaleUpWithDuration:(NSTimeInterval)duration startValue:(float)start endValue:(float)end repeatCount:(float)count shouldReverse:(BOOL)reverse;
+- (void)scaleDownWithDuration:(NSTimeInterval)duration startValue:(float)start endValue:(float)end repeatCount:(float)count shouldReverse:(BOOL)reverse;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(TSCode))
+/// Fades a UIView onto the screen.
+/// \param duration The time to fade in seconds. Default is 1 second.
+///
+/// \param completion Completion block.
+///
+- (void)fadeInWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+/// Fades a UIView out of the screen.
+/// \param duration The time to fade in seconds. Default is 1 second.
+///
+/// \param completion Completion block.
+///
+- (void)fadeOutWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+/// Fades a UIView onto the screen.
+/// \param duration The time to fade in seconds. Default is 1 second.
+///
 - (void)fadeInWithDuration:(NSTimeInterval)duration;
+/// Fades a UIView out of the screen.
+/// \param duration The time to fade in seconds. Default is 1 second.
+///
 - (void)fadeOutWithDuration:(NSTimeInterval)duration;
+/// Fades a UIView onto the screen, waits, and fades back out.
+/// \param duration The time for the fades to complete seconds. Default is 1 second.
+///
+/// \param delay The time in seconds to wait between fades. Default is 3 seconds.
+///
+/// \param completion Completion block.
+///
+- (void)fadeInAndOutWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay andCompletion:(void (^ _Nonnull)(void))completion;
+/// Fades a UIView onto the screen, waits, and fades back out.
+/// \param duration The time for the fades to complete seconds. Default is 1 second.
+///
+/// \param delay The time in seconds to wait between fades. Default is 3 seconds.
+///
+- (void)fadeInAndOutWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
+@end
+
+@class NSLayoutConstraint;
+
+@interface UIView (SWIFT_EXTENSION(TSCode))
+- (void)flyInFromTopWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyInFromBottomWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyInFromRightWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyInFromLeftWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyInFromTopWithDuration:(NSTimeInterval)duration;
+- (void)flyInFromBottomWithDuration:(NSTimeInterval)duration;
+- (void)flyInFromRightWithDuration:(NSTimeInterval)duration;
+- (void)flyInFromLeftWithDuration:(NSTimeInterval)duration;
+- (void)flyOutToTopWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyToBottomWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToRightWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToLeftWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToTopWithDuration:(NSTimeInterval)duration;
+- (void)flyOutToRightWithDuration:(NSTimeInterval)duration;
+- (void)flyOutToLeftWithDuration:(NSTimeInterval)duration;
+- (void)flyOutToBottomWithBottomConstraint:(NSLayoutConstraint * _Nullable)bottomConstraint duration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
 @end
 
 #pragma clang diagnostic pop

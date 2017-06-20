@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/TSCode-Swift.h</key>
 		<data>
-		Nln7vqEqYHMSOX34iws/sY1bCtE=
+		DlLJ0VuiEEFl2XZWaOUP1/RHTdA=
 		</data>
 		<key>Headers/TSCode.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		/KzoaYDSLaPU9j+PMDiHAG1iZWA=
+		DiLh3PzYbwMgfFn+oIvodjIIX2g=
 		</data>
 		<key>Modules/TSCode.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		5eDH6A3qMETJxUW8qQXc731X2Ig=
+		Z9W62oeewSFmp+jTYRMqDWJ/2ZM=
 		</data>
 		<key>Modules/TSCode.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		MZyUVNaUVsCMdXMx+blbsVIpcnY=
+		F/Bkh5WvtcIBOqAl/Hz6RjghUPs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,11 +35,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Nln7vqEqYHMSOX34iws/sY1bCtE=
+			DlLJ0VuiEEFl2XZWaOUP1/RHTdA=
 			</data>
 			<key>hash2</key>
 			<data>
-			+qPhl+AYWd8IzurLrUc6w8Tqp10O9x4VN4EO1HFrAUg=
+			P+sNK5xH1QvIZZJof2Zr+9J2wXRcZ2FRbgsam9GONAs=
 			</data>
 		</dict>
 		<key>Headers/TSCode.h</key>
@@ -57,22 +57,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5eDH6A3qMETJxUW8qQXc731X2Ig=
+			Z9W62oeewSFmp+jTYRMqDWJ/2ZM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0JtcLTt71Sa27+kzDGt2otnwfOi0AALP4Ka73RgTc3M=
+			TO1AO5+TFL6rtVxKxBuWgeOmHaTauH65tWA2BxYKCUI=
 			</data>
 		</dict>
 		<key>Modules/TSCode.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MZyUVNaUVsCMdXMx+blbsVIpcnY=
+			F/Bkh5WvtcIBOqAl/Hz6RjghUPs=
 			</data>
 			<key>hash2</key>
 			<data>
-			pAj3/Z92Kj4XUVsrp9HogQzyqPZ4On6AhnIbRUvSrq4=
+			5fc+miHJLatB1VpboPeHnAWt/xgPcIZv1tBIbQ62OEw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
