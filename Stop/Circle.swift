@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import TSCode
 
 class Circle: UIView {
 

@@ -14,7 +14,7 @@ extension ViewController: GKGameCenterControllerDelegate
     func authenticateLocalPlayer()
     {
         localPlayer.authenticateHandler = {(viewController: UIViewController?, error: Error?) in
-            
+
             if let VC = viewController { self.present(VC, animated: true, completion: nil) }
             else
             {

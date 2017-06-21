@@ -92,6 +92,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="L2s-cG-isL" secondAttribute="bottom" id="5yg-4d-r6E"/>
+                            <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Ri-zx-QfH"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AcW-Eu-syW"/>
                             <constraint firstItem="L2s-cG-isL" firstAttribute="top" secondItem="wbc-CE-kU0" secondAttribute="bottom" constant="8" id="BJT-EG-D3W"/>
                             <constraint firstItem="KMZ-X2-G6B" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C2X-of-lFR"/>
@@ -99,16 +100,15 @@
                             <constraint firstItem="UOY-LJ-o8D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="DFk-I7-xlB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UOY-LJ-o8D" secondAttribute="leading" id="EIU-D3-iTk"/>
                             <constraint firstAttribute="trailing" secondItem="1tj-Vy-9Ae" secondAttribute="trailing" constant="20" id="Lhu-gp-xQ8"/>
-                            <constraint firstItem="L2s-cG-isL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="P3c-4i-yT3"/>
                             <constraint firstItem="1tj-Vy-9Ae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="T52-ur-3Gg"/>
                             <constraint firstAttribute="centerX" secondItem="wbc-CE-kU0" secondAttribute="centerX" id="Tlv-Ww-Y1J"/>
                             <constraint firstItem="daF-TA-MBo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ywe-bU-QtX"/>
                             <constraint firstItem="KMZ-X2-G6B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c3v-Vc-Ig5"/>
+                            <constraint firstAttribute="trailing" secondItem="L2s-cG-isL" secondAttribute="trailing" id="ep4-6p-5Sq"/>
                             <constraint firstItem="wtx-9D-TPc" firstAttribute="centerX" secondItem="KMZ-X2-G6B" secondAttribute="centerX" id="nfH-7U-1bb"/>
                             <constraint firstItem="KMZ-X2-G6B" firstAttribute="top" secondItem="wtx-9D-TPc" secondAttribute="bottom" constant="-30" id="oBQ-Po-zES"/>
                             <constraint firstItem="daF-TA-MBo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pDy-KJ-lAY"/>
                             <constraint firstItem="qKx-jD-4ck" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qVj-MX-IS0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L2s-cG-isL" secondAttribute="trailing" constant="-16" id="zT1-Ft-VDT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

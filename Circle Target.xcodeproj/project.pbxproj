@@ -18,9 +18,9 @@
 		3ADD7F701AD7317C00DF001C /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD7F6F1AD7317C00DF001C /* Circle.swift */; };
 		3B40EBA51EDCBA1E0044F0B8 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EBA41EDCBA1E0044F0B8 /* GameCenterController.swift */; };
 		3B5A15961EF5FBD9000608F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5A15951EF5FBD9000608F4 /* Launch Screen.storyboard */; };
-		3B5A15E21EF8B21A000608F4 /* TSCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15E11EF8B21A000608F4 /* TSCode.framework */; };
-		3B5A15E31EF8B21F000608F4 /* TSCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15E11EF8B21A000608F4 /* TSCode.framework */; };
-		3B5A15E41EF8B21F000608F4 /* TSCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15E11EF8B21A000608F4 /* TSCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B5A15F91EFA14B8000608F4 /* TSCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15F81EFA14B8000608F4 /* TSCode.framework */; };
+		3B5A15FA1EFA14BC000608F4 /* TSCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15F81EFA14B8000608F4 /* TSCode.framework */; };
+		3B5A15FB1EFA14BC000608F4 /* TSCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A15F81EFA14B8000608F4 /* TSCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BABBDF51EDD12C1006CE6BC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BABBDF41EDD12C1006CE6BC /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3B5A15E41EF8B21F000608F4 /* TSCode.framework in Embed Frameworks */,
+				3B5A15FB1EFA14BC000608F4 /* TSCode.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +74,7 @@
 		3ADD7F6F1AD7317C00DF001C /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		3B40EBA41EDCBA1E0044F0B8 /* GameCenterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterController.swift; sourceTree = "<group>"; };
 		3B5A15951EF5FBD9000608F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		3B5A15E11EF8B21A000608F4 /* TSCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TSCode.framework; sourceTree = "<group>"; };
+		3B5A15F81EFA14B8000608F4 /* TSCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TSCode.framework; sourceTree = "<group>"; };
 		3BABBDF41EDD12C1006CE6BC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,10 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B5A15E31EF8B21F000608F4 /* TSCode.framework in Frameworks */,
+				3B5A15FA1EFA14BC000608F4 /* TSCode.framework in Frameworks */,
 				3BABBDF51EDD12C1006CE6BC /* GameKit.framework in Frameworks */,
 				3ADA67EC1B01904900CC047A /* QuartzCore.framework in Frameworks */,
-				3B5A15E21EF8B21A000608F4 /* TSCode.framework in Frameworks */,
+				3B5A15F91EFA14B8000608F4 /* TSCode.framework in Frameworks */,
 				3ADA67DE1B018FFC00CC047A /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,7 +122,7 @@
 		3ADD7F4C1AD72FA800DF001C /* Circle Target */ = {
 			isa = PBXGroup;
 			children = (
-				3B5A15E11EF8B21A000608F4 /* TSCode.framework */,
+				3B5A15F81EFA14B8000608F4 /* TSCode.framework */,
 				3ADD7F4F1AD72FA800DF001C /* AppDelegate.swift */,
 				3ADD7F511AD72FA800DF001C /* ViewController.swift */,
 				3B40EBA41EDCBA1E0044F0B8 /* GameCenterController.swift */,

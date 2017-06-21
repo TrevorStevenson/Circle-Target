@@ -218,14 +218,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 - (void)flyInFromBottomWithDuration:(NSTimeInterval)duration;
 - (void)flyInFromRightWithDuration:(NSTimeInterval)duration;
 - (void)flyInFromLeftWithDuration:(NSTimeInterval)duration;
-- (void)flyOutToTopWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
-- (void)flyToBottomWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
-- (void)flyOutToRightWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
-- (void)flyOutToLeftWithDuration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
-- (void)flyOutToTopWithDuration:(NSTimeInterval)duration;
-- (void)flyOutToRightWithDuration:(NSTimeInterval)duration;
-- (void)flyOutToLeftWithDuration:(NSTimeInterval)duration;
+- (void)flyOutToTopWithTopConstraint:(NSLayoutConstraint * _Nullable)topConstraint duration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
 - (void)flyOutToBottomWithBottomConstraint:(NSLayoutConstraint * _Nullable)bottomConstraint duration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToRightWithRightConstraint:(NSLayoutConstraint * _Nullable)rightConstraint duration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToLeftWithLeftConstraint:(NSLayoutConstraint * _Nullable)leftConstraint duration:(NSTimeInterval)duration andCompletion:(void (^ _Nonnull)(void))completion;
+- (void)flyOutToTopWithTopConstraint:(NSLayoutConstraint * _Nonnull)topConstraint duration:(NSTimeInterval)duration;
+- (void)flyOutToBottomWithBottomConstraint:(NSLayoutConstraint * _Nonnull)bottomConstraint duration:(NSTimeInterval)duration;
+- (void)flyOutToRightWithRightConstraint:(NSLayoutConstraint * _Nonnull)rightConstraint duration:(NSTimeInterval)duration;
+- (void)flyOutToLeftWithLeftConstraint:(NSLayoutConstraint * _Nonnull)leftConstraint duration:(NSTimeInterval)duration;
 @end
 
 #pragma clang diagnostic pop

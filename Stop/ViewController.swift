@@ -13,7 +13,6 @@ import TSCode
 class ViewController: UIViewController {
 
     var score = 0
-    var circles: [Circle] = []
     
     lazy var localPlayer = GKLocalPlayer()
     var gameCenterEnabled = false
@@ -61,9 +60,22 @@ class ViewController: UIViewController {
         
         playButton.fadeIn()
         nameLabel.fadeIn()
-        self.settingsButton.fadeIn()
-        highScoreLabel.flyInFromBottom(withDuration: 0.5)
-        leaderboardButton.flyInFromBottom(withDuration: 0.5)
+        settingsButton.fadeIn()
+        
+        view.layoutIfNeeded()
+        leaderboardBottom.constant = 0
+        UIView.animate(withDuration: 1) { 
+            
+            self.view.layoutIfNeeded()
+            
+        }
+        
+        playButton.layer.zPosition = 10
+        settingsButton.layer.zPosition = 10
+        nameLabel.layer.zPosition = 10
+        highScoreLabel.layer.zPosition = 10
+        leaderboardButton.layer.zPosition = 10
+
     }
     
     func createTargetCircle() -> Circle
@@ -77,32 +89,53 @@ class ViewController: UIViewController {
         
         let screenSize = self.view.frame.size
         
-        let radius = arc4random_uniform(UInt32(screenSize.width / 24)) + UInt32(screenSize.width / 24)
+        let radius = arc4random_uniform(UInt32(screenSize.width / 20)) + UInt32(screenSize.width / 18)
         
         var circle: Circle!
+        let circles: [Circle] = view.subviews.filter {$0 is Circle} as! [Circle]
         
         repeat
         {
             let x = arc4random_uniform(UInt32(screenSize.width) - (2 * radius) - 40) + 20
-            let y = arc4random_uniform(UInt32(screenSize.height) - (2 * radius) - 40) + 20
+            let y = arc4random_uniform(UInt32(screenSize.height) - (2 * radius) - 60) + 60
             circle = Circle(Cframe: CGRect(x: Int(x), y: Int(y), width: Int(2 * radius), height: Int(2 * radius)))
         }
         while circle.interectingCircles(withCircles: circles).count > 0
         
         self.view.addSubview(circle)
-        circles.append(circle)
         
         circle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
         
-        let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius/8), target: self, selector: #selector(self.removeCircle(timer:)), userInfo: circle, repeats: false)
+        let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius/8), target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
         
-        let delay = Int(arc4random_uniform(2)) + 1
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) { self.placeCircle() }
+        let delay = Int(arc4random_uniform(1000)) + 100
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.placeCircle() }
     }
     
-    func removeCircle(timer: Timer)
+    func extractCircle(timer: Timer)
     {
         let circle: Circle = timer.userInfo as! Circle
+        changeCircle(circle)
+    }
+    
+    func changeCircle(_ circle: Circle)
+    {
+        //if let target = targetCircle, !shouldEndGame, circle.fillColor == target.fillColor { endGame() }
+
+        guard arc4random_uniform(3) != 0 else
+        {
+            removeCircle(circle)
+            return
+        }
+        
+        circle.setNeedsDisplay()
+        
+        let delay = Int(arc4random_uniform(500)) + 1000
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.changeCircle(circle) }
+    }
+    
+    func removeCircle(_ circle: Circle)
+    {
         circle.removeFromSuperview()
     }
     
@@ -133,6 +166,8 @@ class ViewController: UIViewController {
     
     func tap(_ sender: UITapGestureRecognizer)
     {
+        guard !shouldEndGame else { return }
+        
         let circleView = sender.view as! Circle
         
         guard let target = targetCircle, circleView.fillColor == target.fillColor else
@@ -141,8 +176,7 @@ class ViewController: UIViewController {
             return
         }
         
-        score += 1
-        scoreLabel.text = "Score: " + String(score)
+        addToScore(1)
         circleView.removeFromSuperview()
     }
     
