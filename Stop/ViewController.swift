@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     var shouldEndGame = false
     
     var targetCircle: Circle?
+    var settingsView: UIView?
+    var tapGesture: UITapGestureRecognizer!
+    var colorSwitch: UISwitch!
+    
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var targetBox: UIImageView!
@@ -67,7 +71,7 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1) { 
             
             self.view.layoutIfNeeded()
-            
+            self.view.isUserInteractionEnabled = true
         }
         
         playButton.layer.zPosition = 10
@@ -75,7 +79,6 @@ class ViewController: UIViewController {
         nameLabel.layer.zPosition = 10
         highScoreLabel.layer.zPosition = 10
         leaderboardButton.layer.zPosition = 10
-
     }
     
     func createTargetCircle() -> Circle
@@ -89,7 +92,7 @@ class ViewController: UIViewController {
         
         let screenSize = self.view.frame.size
         
-        let radius = arc4random_uniform(UInt32(screenSize.width / 20)) + UInt32(screenSize.width / 18)
+        let radius = arc4random_uniform(UInt32(screenSize.width / 16)) + UInt32(screenSize.width / 16)
         
         var circle: Circle!
         let circles: [Circle] = view.subviews.filter {$0 is Circle} as! [Circle]
@@ -108,7 +111,7 @@ class ViewController: UIViewController {
         
         let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius/8), target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
         
-        let delay = Int(arc4random_uniform(1000)) + 100
+        let delay = Int(arc4random_uniform(400)) + 500
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.placeCircle() }
     }
     
@@ -120,23 +123,23 @@ class ViewController: UIViewController {
     
     func changeCircle(_ circle: Circle)
     {
-        //if let target = targetCircle, !shouldEndGame, circle.fillColor == target.fillColor { endGame() }
-
-        guard arc4random_uniform(3) != 0 else
+        guard arc4random_uniform(3) != 0, !shouldEndGame else
         {
-            removeCircle(circle)
+            circle.removeFromSuperview()
             return
         }
         
         circle.setNeedsDisplay()
         
-        let delay = Int(arc4random_uniform(500)) + 1000
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.changeCircle(circle) }
-    }
-    
-    func removeCircle(_ circle: Circle)
-    {
-        circle.removeFromSuperview()
+        let delay = Int(arc4random_uniform(300)) + 600
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay))
+        {
+            if let target = self.targetCircle, circle.fillColor == target.fillColor, self.view.subviews.contains(circle)
+            {
+                self.endGame()
+            }
+            self.changeCircle(circle)
+        }
     }
     
     func addToScore(_ value: Int)
@@ -147,7 +150,14 @@ class ViewController: UIViewController {
     
     func endGame()
     {
+        view.isUserInteractionEnabled = false
         shouldEndGame = true
+        
+        for circle in view.subviews.filter({$0 is Circle})
+        {
+            circle.removeFromSuperview()
+        }
+        
         submitScore()
         var hScore = UserDefaults.standard.integer(forKey: "highScore")
         
@@ -180,11 +190,29 @@ class ViewController: UIViewController {
         circleView.removeFromSuperview()
     }
     
+    func hideSettings()
+    {
+        guard let settings = settingsView else { return }
+        
+        settings.flyOutToTop
+        {
+            self.view.removeGestureRecognizer(self.tapGesture)
+            self.settingsButton.isEnabled = true
+        }
+    }
+    
+    func didPushSwitch()
+    {
+        UserDefaults.standard.set(colorSwitch.isOn, forKey: "colorBlind")
+        UserDefaults.standard.synchronize()
+    }
+    
     @IBAction func play(_ sender: UIButton)
     {
         shouldEndGame = false
         nameLabel.fadeOut()
         self.settingsButton.fadeOut()
+        hideSettings()
         sender.fadeOut(withDuration: 1) {
             
             self.targetCircle = self.createTargetCircle()
@@ -204,7 +232,38 @@ class ViewController: UIViewController {
     
     @IBAction func settings(_ sender: Any)
     {
+        settingsButton.isEnabled = false
+        settingsView = UIView(frame: CGRect(x: 10, y: 0, width: view.frame.size.width - 20, height: 60))
         
+        guard let settings = settingsView else { return }
+        
+        settings.backgroundColor = UIColor(red: 44.0/255.0, green: 62.0/255.0, blue: 80.0/255.0, alpha: 1.0)
+        let colorBlindLabel = UILabel(frame: CGRect(x: 30, y: 15, width: 200, height: 150))
+        colorBlindLabel.text = "Color blind mode:"
+        colorBlindLabel.font = UIFont(name: "Avenir-Book", size: 20)
+        colorBlindLabel.textColor = .white
+        colorBlindLabel.sizeToFit()
+        view.addSubview(settings)
+        
+        let path = UIBezierPath(roundedRect: settings.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 100, height: 10))
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        settings.layer.mask = shapeLayer
+        settings.layer.zPosition = 100
+        settings.setNeedsDisplay()
+        
+        settings.addSubview(colorBlindLabel)
+        
+        colorSwitch = UISwitch(frame: CGRect(x: settings.frame.width - 71, y: 15, width: 51, height: 31))
+        colorSwitch.addTarget(self, action: #selector(didPushSwitch), for: .valueChanged)
+        colorSwitch.setOn(UserDefaults.standard.bool(forKey: "colorBlind"), animated: false)
+        settings.addSubview(colorSwitch)
+        
+        settings.flyInFromTop()
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideSettings))
+        view.addGestureRecognizer(tapGesture)
+            
     }
 }
 

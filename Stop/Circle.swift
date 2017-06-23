@@ -13,7 +13,7 @@ import TSCode
 class Circle: UIView {
 
     enum CircleColor
-    { case red, orange, yellow, green, blue, purple, black, cyan, darkGray, magenta }
+    { case red, orange, yellow, green, blue, purple, black, cyan, magenta }
     
     var fillColor: CircleColor?
     
@@ -48,7 +48,7 @@ class Circle: UIView {
     
     func setCircleColor()
     {
-        var colors: [UIColor] = [.red, .orange, .yellow, .green, .blue, .purple, .black, .cyan, .darkGray, .magenta]
+        var colors: [UIColor] = [.red, .orange, .yellow, .green, .blue, .purple, .black, .cyan, .magenta]
         
         let random = arc4random_uniform(UInt32(colors.count))
         
@@ -75,8 +75,6 @@ class Circle: UIView {
         case 7:
             fillColor = .cyan
         case 8:
-            fillColor = .darkGray
-        case 9:
             fillColor = .magenta
         default:
             fillColor = nil
