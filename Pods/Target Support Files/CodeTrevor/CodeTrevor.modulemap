@@ -1,0 +1,6 @@
+framework module CodeTrevor {
+  umbrella header "CodeTrevor-umbrella.h"
+
+  export *
+  module * { export * }
+}

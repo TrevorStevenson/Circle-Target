@@ -11,9 +11,12 @@ import Foundation
 import TSCode
 
 class Circle: UIView {
+    
+    var colorBlindMode = false
+    var colorLabel: UILabel!
 
-    enum CircleColor
-    { case red, orange, yellow, green, blue, purple, black, cyan, magenta }
+    enum CircleColor: String
+    { case red = "R", orange = "O", yellow = "Y", green = "G", blue = "B", purple = "P", black = "Bk", cyan = "C", magenta = "M" }
     
     var fillColor: CircleColor?
     
@@ -23,8 +26,17 @@ class Circle: UIView {
         
         super.init(frame: Cframe)
         
-        self.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
         scaleUp(withDuration: 0.25, startValue: 1.0, endValue: 1.25, repeatCount: 1, shouldReverse: true)
+        colorBlindMode = UserDefaults.standard.bool(forKey: "colorBlind")
+        
+        colorLabel = UILabel(frame: self.bounds.insetBy(dx: 10, dy: 10))
+        colorLabel.font = UIFont(name: "Avenir-Book", size: 40)
+        colorLabel.adjustsFontSizeToFitWidth = true
+        colorLabel.minimumScaleFactor = 0.01
+        colorLabel.textAlignment = .center
+        colorLabel.textColor = .black
+        self.addSubview(colorLabel)
     }
     
     override func draw(_ rect: CGRect) {
@@ -32,6 +44,13 @@ class Circle: UIView {
         let circlePath = UIBezierPath(ovalIn: rect)
         setCircleColor()
         circlePath.fill()
+        
+        if let color = self.fillColor, colorBlindMode
+        {
+            self.colorLabel.text = color.rawValue
+            if color == .black { self.colorLabel.textColor = .white }
+            else { self.colorLabel.textColor = .black }
+        }
     }
     
     func interectingCircles(withCircles circles: [Circle]) -> [Circle]

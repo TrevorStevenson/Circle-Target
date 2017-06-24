@@ -8,7 +8,7 @@
 
 import UIKit
 import GameKit
-import TSCode
+import CodeTrevor
 
 class ViewController: UIViewController {
 
@@ -92,13 +92,12 @@ class ViewController: UIViewController {
         
         let screenSize = self.view.frame.size
         
-        let radius = arc4random_uniform(UInt32(screenSize.width / 16)) + UInt32(screenSize.width / 16)
-        
         var circle: Circle!
         let circles: [Circle] = view.subviews.filter {$0 is Circle} as! [Circle]
         
         repeat
         {
+            let radius = arc4random_uniform(UInt32(screenSize.width / 12)) + UInt32(screenSize.width / 14)
             let x = arc4random_uniform(UInt32(screenSize.width) - (2 * radius) - 40) + 20
             let y = arc4random_uniform(UInt32(screenSize.height) - (2 * radius) - 60) + 60
             circle = Circle(Cframe: CGRect(x: Int(x), y: Int(y), width: Int(2 * radius), height: Int(2 * radius)))
@@ -109,7 +108,7 @@ class ViewController: UIViewController {
         
         circle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
         
-        let _ = Timer.scheduledTimer(timeInterval: TimeInterval(radius/8), target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
+        let _ = Timer.scheduledTimer(timeInterval: Double(arc4random_uniform(200) + 800) / 1000.0, target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
         
         let delay = Int(arc4random_uniform(400)) + 500
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.placeCircle() }
@@ -123,7 +122,7 @@ class ViewController: UIViewController {
     
     func changeCircle(_ circle: Circle)
     {
-        guard arc4random_uniform(3) != 0, !shouldEndGame else
+        guard arc4random_uniform(4) != 0, !shouldEndGame else
         {
             circle.removeFromSuperview()
             return
@@ -131,7 +130,7 @@ class ViewController: UIViewController {
         
         circle.setNeedsDisplay()
         
-        let delay = Int(arc4random_uniform(300)) + 600
+        let delay = Int(arc4random_uniform(300)) + 800
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay))
         {
             if let target = self.targetCircle, circle.fillColor == target.fillColor, self.view.subviews.contains(circle)
@@ -193,7 +192,7 @@ class ViewController: UIViewController {
     func hideSettings()
     {
         guard let settings = settingsView else { return }
-        
+
         settings.flyOutToTop
         {
             self.view.removeGestureRecognizer(self.tapGesture)
@@ -259,7 +258,7 @@ class ViewController: UIViewController {
         colorSwitch.setOn(UserDefaults.standard.bool(forKey: "colorBlind"), animated: false)
         settings.addSubview(colorSwitch)
         
-        settings.flyInFromTop()
+        settings.flyInFromTop(withDuration: 0.5)
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideSettings))
         view.addGestureRecognizer(tapGesture)

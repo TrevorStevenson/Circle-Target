@@ -1,0 +1,6 @@
+framework module Pods_Circle_Target {
+  umbrella header "Pods-Circle Target-umbrella.h"
+
+  export *
+  module * { export * }
+}

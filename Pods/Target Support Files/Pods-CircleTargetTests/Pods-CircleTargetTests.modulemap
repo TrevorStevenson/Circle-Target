@@ -1,0 +1,6 @@
+framework module Pods_CircleTargetTests {
+  umbrella header "Pods-CircleTargetTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
