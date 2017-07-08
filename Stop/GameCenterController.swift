@@ -68,7 +68,7 @@ extension ViewController: GKGameCenterControllerDelegate
     
     func submitScore()
     {
-        let id = "highScore2"
+        let id = UserDefaults.standard.bool(forKey: "lava") ? "lavaHighScore" : "highScore2"
         let highScore = GKScore(leaderboardIdentifier:id)
         
         highScore.value = Int64(score)

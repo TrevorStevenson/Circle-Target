@@ -114,9 +114,9 @@ class ViewController: UIViewController {
         
         circle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
         
-        let _ = Timer.scheduledTimer(timeInterval: Double(arc4random_uniform(200) + 750) / 1000.0, target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
+        let _ = Timer.scheduledTimer(timeInterval: Double(arc4random_uniform(200) + 700) / 1000.0, target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
         
-        let delay = Int(arc4random_uniform(400)) + 450
+        let delay = Int(arc4random_uniform(400)) + 400
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.placeCircle() }
     }
     
@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         
         circle.setNeedsDisplay()
         
-        let delay = Int(arc4random_uniform(300)) + 750
+        let delay = Int(arc4random_uniform(300)) + 700
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay))
         {
             if let target = self.targetCircle, circle.fillColor == target.fillColor, self.view.subviews.contains(circle)
