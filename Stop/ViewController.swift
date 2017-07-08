@@ -21,9 +21,12 @@ class ViewController: UIViewController {
     
     var targetCircle: Circle?
     var tapGesture: UITapGestureRecognizer!
+    var lavaTap: UITapGestureRecognizer!
     var colorSwitch: UISwitch!
+    var lavaSwitch: UISwitch!
     
     var settingsView: UIView?
+    var lavaBG: UIImageView!
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var targetBox: UIImageView!
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var leaderboardButton: UIButton!
     
+    @IBOutlet weak var highScoreBottom: NSLayoutConstraint!
     @IBOutlet weak var leaderboardBottom: NSLayoutConstraint!
     
     override func viewDidLoad()
@@ -42,6 +46,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         highScoreLabel.text = "High Score: " + String(UserDefaults.standard.integer(forKey: "highScore"))
+        
+        view.layoutIfNeeded()
+        
         setUpMenu()
     }
     
@@ -66,12 +73,11 @@ class ViewController: UIViewController {
         nameLabel.fadeIn()
         settingsButton.fadeIn()
         
-        view.layoutIfNeeded()
-        leaderboardBottom.constant = 0
-        UIView.animate(withDuration: 1) { 
+        highScoreLabel.flyInFromBottom(toValue: view.bounds.height - leaderboardButton.bounds.height - highScoreLabel.bounds.height - 8, withDuration: 1, useAutoLayout: true, completion: {})
+        leaderboardButton.flyInFromBottom(toValue: view.bounds.height - leaderboardButton.bounds.height, withDuration: 1, useAutoLayout: true) {
             
-            self.view.layoutIfNeeded()
             self.view.isUserInteractionEnabled = true
+
         }
         
         playButton.layer.zPosition = 10
@@ -108,9 +114,9 @@ class ViewController: UIViewController {
         
         circle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
         
-        let _ = Timer.scheduledTimer(timeInterval: Double(arc4random_uniform(200) + 800) / 1000.0, target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
+        let _ = Timer.scheduledTimer(timeInterval: Double(arc4random_uniform(200) + 750) / 1000.0, target: self, selector: #selector(self.extractCircle(timer:)), userInfo: circle, repeats: false)
         
-        let delay = Int(arc4random_uniform(400)) + 500
+        let delay = Int(arc4random_uniform(400)) + 450
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) { self.placeCircle() }
     }
     
@@ -130,7 +136,7 @@ class ViewController: UIViewController {
         
         circle.setNeedsDisplay()
         
-        let delay = Int(arc4random_uniform(300)) + 800
+        let delay = Int(arc4random_uniform(300)) + 750
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay))
         {
             if let target = self.targetCircle, circle.fillColor == target.fillColor, self.view.subviews.contains(circle)
@@ -152,6 +158,16 @@ class ViewController: UIViewController {
         view.isUserInteractionEnabled = false
         shouldEndGame = true
         
+        if UserDefaults.standard.bool(forKey: "lava")
+        {
+            view.removeGestureRecognizer(lavaTap)
+            lavaBG.fadeOut(withDuration: 1, completion: { 
+                
+                self.lavaBG.removeFromSuperview()
+
+            })
+        }
+        
         for circle in view.subviews.filter({$0 is Circle})
         {
             circle.removeFromSuperview()
@@ -160,17 +176,18 @@ class ViewController: UIViewController {
         submitScore()
         var hScore = UserDefaults.standard.integer(forKey: "highScore")
         
-        if (score > hScore)
-        {
-            hScore = score
-            UserDefaults.standard.set(hScore, forKey: "highScore")
-            UserDefaults.standard.synchronize()
-        }
+        hScore = score > hScore ? score : hScore
+        UserDefaults.standard.set(hScore, forKey: "highScore")
+        UserDefaults.standard.synchronize()
         
         highScoreLabel.text = "High Score: " + String(UserDefaults.standard.integer(forKey: "highScore"))
         addToScore(-score)
         
-        setUpMenu()
+        scoreLabel.fadeOut(withDuration: 0.5) { 
+            
+            self.setUpMenu()
+            
+        }
     }
     
     func tap(_ sender: UITapGestureRecognizer)
@@ -193,8 +210,8 @@ class ViewController: UIViewController {
     {
         guard let settings = settingsView else { return }
 
-        settings.flyOutToTop(withTopConstraint: nil, duration: 1.0, completion:
-            {
+        settings.flyOutToTop(toValue: -settings.bounds.height, withDuration: 1, useAutoLayout: false, completion:
+        {
                 self.view.removeGestureRecognizer(self.tapGesture)
                 self.settingsButton.isEnabled = true
         })
@@ -206,33 +223,60 @@ class ViewController: UIViewController {
         UserDefaults.standard.synchronize()
     }
     
+    func didPushLavaSwitch()
+    {
+        UserDefaults.standard.set(lavaSwitch.isOn, forKey: "lava")
+        UserDefaults.standard.synchronize()
+    }
+    
     @IBAction func play(_ sender: UIButton)
     {
         shouldEndGame = false
         nameLabel.fadeOut()
-        self.settingsButton.fadeOut()
+        settingsButton.fadeOut()
         hideSettings()
+        leaderboardButton.flyOutToBottom(toValue: view.bounds.height + highScoreLabel.bounds.height + 8, useAutoLayout: true)
+        highScoreLabel.flyOutToBottom(toValue: view.bounds.height, useAutoLayout: true)
+        
         sender.fadeOut(withDuration: 1) {
             
             self.targetCircle = self.createTargetCircle()
-            self.targetBox.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: {})
-            self.targetLabel.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: {})
+            self.targetBox.fadeInAndOut(withFadeDuration: 2, delay: 1, completion: {})
+            self.targetLabel.fadeInAndOut(withFadeDuration: 2, delay: 1, completion: {})
             self.scoreLabel.fadeIn()
-
+            self.scoreLabel.adjustsFontSizeToFitWidth = true
+            
             if let circle = self.targetCircle
             {
                 self.view.addSubview(circle)
-                circle.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: { self.placeCircle() })
+                circle.fadeInAndOut(withFadeDuration: 2, delay: 1, completion:
+                {
+                    if UserDefaults.standard.bool(forKey: "lava")
+                    {
+                        self.lavaTap = UITapGestureRecognizer(target: self, action: #selector(self.endGame))
+                        self.view.addGestureRecognizer(self.lavaTap)
+                        self.lavaBG = UIImageView(image: #imageLiteral(resourceName: "lava"))
+                        self.lavaBG.frame = self.view.frame
+                        self.lavaBG.layer.zPosition = -10
+                        self.view.addSubview(self.lavaBG)
+                        self.lavaBG.fadeIn(withDuration: 1, completion:
+                        {
+                            self.placeCircle()
+                        })
+                    }
+                    else
+                    {
+                        self.placeCircle()
+                    }
+                })
             }
-            
-            self.leaderboardButton.flyOutToBottom(withBottomConstraint: self.leaderboardBottom, duration: 1, completion: {})
         }
     }
     
     @IBAction func settings(_ sender: Any)
     {
         settingsButton.isEnabled = false
-        settingsView = UIView(frame: CGRect(x: 10, y: 0, width: view.frame.size.width - 20, height: 60))
+        settingsView = UIView(frame: CGRect(x: 10, y: -110, width: view.frame.size.width - 20, height: 110))
         
         guard let settings = settingsView else { return }
         
@@ -244,13 +288,12 @@ class ViewController: UIViewController {
         colorBlindLabel.sizeToFit()
         view.addSubview(settings)
         
-        let path = UIBezierPath(roundedRect: settings.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 100, height: 10))
+        let path = UIBezierPath(roundedRect: settings.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 25, height: 10))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         settings.layer.mask = shapeLayer
         settings.layer.zPosition = 100
         settings.setNeedsDisplay()
-        
         settings.addSubview(colorBlindLabel)
         
         colorSwitch = UISwitch(frame: CGRect(x: settings.frame.width - 71, y: 15, width: 51, height: 31))
@@ -258,11 +301,22 @@ class ViewController: UIViewController {
         colorSwitch.setOn(UserDefaults.standard.bool(forKey: "colorBlind"), animated: false)
         settings.addSubview(colorSwitch)
         
-        settings.flyInFromTop(withTopConstraint: nil, duration: 0.5, completion: {})
+        let lavaModeLabel = UILabel(frame: CGRect(x: 30, y: colorBlindLabel.frame.origin.y + colorBlindLabel.bounds.height + 20, width: 200, height: 150))
+        lavaModeLabel.text = "Lava mode:"
+        lavaModeLabel.font = UIFont(name: "Avenir-Book", size: 20)
+        lavaModeLabel.textColor = .white
+        lavaModeLabel.sizeToFit()
+        settings.addSubview(lavaModeLabel)
+
+        lavaSwitch = UISwitch(frame: CGRect(x: settings.frame.width - 71, y: colorBlindLabel.frame.origin.y + colorBlindLabel.bounds.height + 20, width: 51, height: 31))
+        lavaSwitch.addTarget(self, action: #selector(didPushLavaSwitch), for: .valueChanged)
+        lavaSwitch.setOn(UserDefaults.standard.bool(forKey: "lava"), animated: false)
+        settings.addSubview(lavaSwitch)
+        
+        settings.flyInFromTop(toValue: 0, withDuration: 0.75, completion: {})
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideSettings))
         view.addGestureRecognizer(tapGesture)
-            
     }
 }
 

@@ -1,12 +1,12 @@
 PODS:
-  - CodeTrevor (1.0.2)
+  - CodeTrevor (1.0.4)
 
 DEPENDENCIES:
-  - CodeTrevor (~> 1.0.2)
+  - CodeTrevor (~> 1.0.4)
 
 SPEC CHECKSUMS:
-  CodeTrevor: db325ed1233ee261d3f08ffc61304cf2c5ddc62e
+  CodeTrevor: e543a04440f5dfcba14163797295c5ee6f5aacf3
 
-PODFILE CHECKSUM: aa3a7eec2249417ec4799ec98c4176ff04468fde
+PODFILE CHECKSUM: f43b75ce9612980af496b70c91cdec57c87eeb17
 
 COCOAPODS: 1.2.1
