@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import TSCode
+import CodeTrevor
 
 class Circle: UIView {
     
@@ -25,9 +25,9 @@ class Circle: UIView {
     init(Cframe: CGRect) {
         
         super.init(frame: Cframe)
-        
+
         backgroundColor = UIColor.clear
-        scaleUp(withDuration: 0.25, startValue: 1.0, endValue: 1.25, repeatCount: 1, shouldReverse: true)
+        scaleUp(withDuration: 0.25, to: 1.25, completion: {})
         colorBlindMode = UserDefaults.standard.bool(forKey: "colorBlind")
         
         colorLabel = UILabel(frame: self.bounds.insetBy(dx: 10, dy: 10))
@@ -59,7 +59,7 @@ class Circle: UIView {
         
         for circle in circles
         {
-            if self.doesIntersect(circle) { intersecting.append(circle) }
+            if self.frame.intersects(circle.frame) { intersecting.append(circle) }
         }
         
         return intersecting

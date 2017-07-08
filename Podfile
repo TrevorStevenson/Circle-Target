@@ -8,7 +8,7 @@ target 'Circle Target' do
   use_frameworks!
 
   # Pods for CodeTrevor
-  pod 'CodeTrevor', :git => 'https://github.com/TrevorStevenson/CodeTrevor.git', :tag => '1.0.1'
+  pod 'CodeTrevor', '~> 1.0.2'
 
   target 'CircleTargetTests' do
     inherit! :search_paths

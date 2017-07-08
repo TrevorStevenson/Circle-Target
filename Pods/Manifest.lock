@@ -1,22 +1,12 @@
 PODS:
-  - CodeTrevor (1.0.0)
+  - CodeTrevor (1.0.2)
 
 DEPENDENCIES:
-  - CodeTrevor (from `https://github.com/TrevorStevenson/CodeTrevor.git`, tag `1.0.1`)
-
-EXTERNAL SOURCES:
-  CodeTrevor:
-    :git: https://github.com/TrevorStevenson/CodeTrevor.git
-    :tag: 1.0.1
-
-CHECKOUT OPTIONS:
-  CodeTrevor:
-    :git: https://github.com/TrevorStevenson/CodeTrevor.git
-    :tag: 1.0.1
+  - CodeTrevor (~> 1.0.2)
 
 SPEC CHECKSUMS:
-  CodeTrevor: 8161dd9a99e48ec250c0f50a66487a02addb6f28
+  CodeTrevor: db325ed1233ee261d3f08ffc61304cf2c5ddc62e
 
-PODFILE CHECKSUM: 83d8232e60377daea97ae527a42e9887d71e29f4
+PODFILE CHECKSUM: aa3a7eec2249417ec4799ec98c4176ff04468fde
 
 COCOAPODS: 1.2.1

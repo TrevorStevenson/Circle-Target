@@ -20,10 +20,10 @@ class ViewController: UIViewController {
     var shouldEndGame = false
     
     var targetCircle: Circle?
-    var settingsView: UIView?
     var tapGesture: UITapGestureRecognizer!
     var colorSwitch: UISwitch!
     
+    var settingsView: UIView?
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var targetBox: UIImageView!
@@ -193,11 +193,11 @@ class ViewController: UIViewController {
     {
         guard let settings = settingsView else { return }
 
-        settings.flyOutToTop
-        {
-            self.view.removeGestureRecognizer(self.tapGesture)
-            self.settingsButton.isEnabled = true
-        }
+        settings.flyOutToTop(withTopConstraint: nil, duration: 1.0, completion:
+            {
+                self.view.removeGestureRecognizer(self.tapGesture)
+                self.settingsButton.isEnabled = true
+        })
     }
     
     func didPushSwitch()
@@ -215,17 +215,17 @@ class ViewController: UIViewController {
         sender.fadeOut(withDuration: 1) {
             
             self.targetCircle = self.createTargetCircle()
-            self.targetBox.fadeInAndOut()
-            self.targetLabel.fadeInAndOut()
+            self.targetBox.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: {})
+            self.targetLabel.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: {})
             self.scoreLabel.fadeIn()
 
             if let circle = self.targetCircle
             {
                 self.view.addSubview(circle)
-                circle.fadeInAndOut { self.placeCircle() }
+                circle.fadeInAndOut(withFadeDuration: 1, delay: 1, completion: { self.placeCircle() })
             }
             
-            self.leaderboardButton.flyOutToBottom(withBottomConstraint: self.leaderboardBottom, duration: 1, andCompletion: {})
+            self.leaderboardButton.flyOutToBottom(withBottomConstraint: self.leaderboardBottom, duration: 1, completion: {})
         }
     }
     
@@ -258,7 +258,7 @@ class ViewController: UIViewController {
         colorSwitch.setOn(UserDefaults.standard.bool(forKey: "colorBlind"), animated: false)
         settings.addSubview(colorSwitch)
         
-        settings.flyInFromTop(withDuration: 0.5)
+        settings.flyInFromTop(withTopConstraint: nil, duration: 0.5, completion: {})
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideSettings))
         view.addGestureRecognizer(tapGesture)
